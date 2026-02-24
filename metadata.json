@@ -1,0 +1,5 @@
+{
+  "name": "CodeLens: Code Visualizer",
+  "description": "Paste your code and visualize its execution and output through AI-generated imagery.",
+  "requestFramePermissions": []
+}
