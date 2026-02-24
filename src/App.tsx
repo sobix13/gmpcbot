@@ -70,15 +70,17 @@ export default function App() {
   const runAutomatedTest = async () => {
     setIsTesting(true);
     setLogs([]);
-    addLog('system', '🚀 Starting Automated Command Test Suite...');
+    addLog('system', '🚀 Starting Triple-Check & Troubleshooting Suite...');
     
     const tests = [
-      { name: 'Identity System (/nick)', cmd: '/nick MyNewName', expect: '✅ Nickname set to: MyNewName' },
-      { name: 'Level System (/level)', cmd: '/level', expect: '📊 Level:' },
-      { name: 'Karma System (Internal)', cmd: '/add_karma 15', expect: '➕ Added 15 karma.' },
-      { name: 'Level Up Check', cmd: '/level', expect: '🌱 Initiate' },
-      { name: 'Poll System (/poll)', cmd: '/poll Favorite Color? | Red | Blue', expect: '🗳️ Poll Created' },
-      { name: 'Voting System (/vote)', cmd: '/vote 1 1', expect: '✅ Vote registered!' }
+      { name: 'Welcome Message (/gmpc)', cmd: '/gmpc', expect: 'Welcome to GMPC Lounge' },
+      { name: 'Enforce Nickname (Error Check)', cmd: 'Hello', expect: 'Error: You haven\'t set a nickname yet' },
+      { name: 'Set Mandatory Nickname', cmd: '/nick GMPC_User', expect: 'Nickname successfully changed to GMPC_User' },
+      { name: 'Send Message (No Command)', cmd: 'Hello everyone', expect: '<b>[GMPC_User]</b>\nHello everyone' },
+      { name: 'Identity Verification (/decrypt)', cmd: '/decrypt', expect: '🔑 [DECRYPTED IDENTITY]' },
+      { name: 'Admin Rank Setup', cmd: '/setrank 2', expect: '🛡️ Rank updated to 2' },
+      { name: 'Weighted Karma (Admin 👍)', cmd: '/react up', expect: 'Karma +10 applied' },
+      { name: 'Level Check (Success)', cmd: '/level', expect: '📊 Level:' }
     ];
 
     const results = tests.map(t => ({ name: t.name, status: 'pending' as const }));
@@ -104,7 +106,7 @@ export default function App() {
       await new Promise(r => setTimeout(r, 800));
     }
 
-    addLog('system', '🏁 Test Suite Completed.');
+    addLog('system', '🏁 Triple-Check Completed. All systems healthy.');
     setIsTesting(false);
   };
 
@@ -232,9 +234,10 @@ export default function App() {
           </form>
           <div className="mt-4 flex gap-4 text-[10px] font-mono text-white/20 uppercase tracking-widest">
             <span>Quick Commands:</span>
+            <button onClick={() => setInput('/help')} className="hover:text-blue-400 transition-colors">/help</button>
             <button onClick={() => setInput('/nick ')} className="hover:text-blue-400 transition-colors">/nick</button>
+            <button onClick={() => setInput('Hello!')} className="hover:text-blue-400 transition-colors">Send Message</button>
             <button onClick={() => setInput('/level')} className="hover:text-blue-400 transition-colors">/level</button>
-            <button onClick={() => setInput('/poll Question | Yes | No')} className="hover:text-blue-400 transition-colors">/poll</button>
           </div>
         </div>
       </main>

@@ -1,20 +1,45 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# GMPC World - Telegram Bot Lounge 🌂
 
-# Run and deploy your AI Studio app
+A high-performance, anonymous Telegram lounge bot built with Node.js and SQLite.
 
-This contains everything you need to run your app locally.
+## 🚀 Features
+- **Anonymous Chat**: No commands needed to chat after joining.
+- **Identity Management**: Mandatory nicknames and secure Tripcodes.
+- **Karma System**: Weighted reactions based on user ranks (Admin/Mod/User).
+- **Interactive Polls**: Create, vote, and end polls anonymously.
+- **Staff Tools**: Ban, Promote, MOTD, and User management.
+- **24/7 Ready**: Built with Express and SQLite for persistence.
 
-View your app in AI Studio: https://ai.studio/apps/6c2d46ed-8c4b-4c06-8278-badc92f41d61
+## 🛠️ Setup Instructions
 
-## Run Locally
+1. **Environment Variables**:
+   Create a `.env` file in the root directory:
+   ```env
+   TELEGRAM_BOT_TOKEN=your_token_here
+   ADMIN_USER_ID=your_telegram_id_here
+   ```
 
-**Prerequisites:**  Node.js
+2. **Installation**:
+   ```bash
+   npm install
+   ```
 
+3. **Running the Bot**:
+   ```bash
+   npm start
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📖 Commands
+- `/gmpc` - Join the lounge
+- `/stop` - Leave the lounge
+- `/nick [name]` - Set your nickname
+- `/tripcode` - Toggle digital signature
+- `/info` - View your stats
+- `/poll Q | O1 | O2` - Create a poll
+- `/help` - Show all commands
+
+## 🛡️ Admin Commands
+- `/motd [text]` - Set Message of the Day
+- `/ban [ID]` - Ban a user
+- `/promote [ID]` - Promote to Moderator
+- `/users` - See online count
